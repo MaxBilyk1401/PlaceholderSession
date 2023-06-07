@@ -8,9 +8,8 @@
 import UIKit
 
 final class UsersVeiwController: UITableViewController {
-    private let userTableView = UITableView()
-    var viewModel = ViewModel()
-    var list = [UsersModel]()
+    private var viewModel = UserViewModel()
+    private var list = [UserModel]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -37,12 +36,13 @@ final class UsersVeiwController: UITableViewController {
         
         viewModel.onFailure = { [weak self] failure in
             guard let self else { return }
-            let alert = UIAlertController(title: "Oops, something went wrong!",
+            guard let failure else { return }
+            let alert = UIAlertController(title: String(failure),
                                           message: "Try again",
                                           preferredStyle: .alert)
             alert.addAction(UIAlertAction(title: "Ok",
                                           style: .cancel))
-            if failure {
+            if (failure != nil) {
                 self.present(alert, animated: true)
             }
         }
@@ -84,13 +84,5 @@ extension UsersVeiwController {
         cell.companyLabelText = item.company.name
         cell.addressLabelText = item.address.city
         return cell
-    }
-}
-
-extension UsersVeiwController: UsersView {
-    
-    func display(_ users: [UsersModel]) {
-        list = users
-        tableView.reloadData()
     }
 }

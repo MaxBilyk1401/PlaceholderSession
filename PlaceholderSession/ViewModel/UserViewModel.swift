@@ -7,19 +7,14 @@
 
 import Foundation
 
-protocol UsersView: AnyObject {
-    func display(_ users: [UsersModel])
-}
-
-class ViewModel {
-    weak var view: UsersView?
+class UserViewModel {
     var onLoading: ((Bool) -> Void)?
-    var onListUpdate: (([UsersModel]) -> Void)?
-    var onFailure: ((Bool) -> Void)?
+    var onListUpdate: (([UserModel]) -> Void)?
+    var onFailure: ((String?) -> Void)?
     
     func fetchData() {
         onLoading?(true)
-        onFailure?(false)
+        onFailure?(nil)
         NetworkingManager.fetchData { [weak self] result in
             guard let self else { return }
             DispatchQueue.main.async {
@@ -27,7 +22,7 @@ class ViewModel {
                 case .success(let success):
                     self.onListUpdate?(success)
                 case .failure:
-                    self.onFailure?(true)
+                    self.onFailure?("Oops, something went wrong!")
                 }
                 self.onLoading?(false)
             }
