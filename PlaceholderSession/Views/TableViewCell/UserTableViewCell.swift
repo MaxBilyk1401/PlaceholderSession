@@ -15,46 +15,15 @@ final class UserTableViewCell: UITableViewCell {
     @IBOutlet private weak var websiteLabel: UILabel!
     @IBOutlet private weak var companyLabel: UILabel!
     @IBOutlet private weak var addressLabel: UILabel!
+    private var list = [UserModel]()
     
-    var nameLabelText: String? {
-        didSet {
-            guard let nameLabel else { return }
-            nameLabel.text = nameLabelText
-        }
-    }
-    
-    var usernameLabelText: String? {
-        didSet {
-            guard let usernameLabel else { return }
-            usernameLabel.text = usernameLabelText
-        }
-    }
-    
-    var phoneLabelText: String? {
-        didSet {
-            guard let phoneLabel else { return }
-            phoneLabel.text = phoneLabelText
-        }
-    }
-    
-    var websiteLabelText: String? {
-        didSet {
-            guard let websiteLabel else { return }
-            websiteLabel.text = websiteLabelText
-        }
-    }
-    
-    var companyLabelText: String? {
-        didSet {
-            guard let companyLabel else { return }
-            companyLabel.text = companyLabelText
-        }
-    }
-    
-    var addressLabelText: String? {
-        didSet {
-            guard let addressLabel else { return }
-            addressLabel.text = addressLabelText
-        }
+    func setup(with user: UserModel) {
+        nameLabel.text = user.name
+        usernameLabel.text = user.username
+        emailLabel.text = user.email
+        phoneLabel.text = user.phone
+        websiteLabel.text = user.website
+        companyLabel.text = user.company.name
+        addressLabel.text = user.address.city
     }
 }

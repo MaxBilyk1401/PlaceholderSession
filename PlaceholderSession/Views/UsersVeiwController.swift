@@ -77,12 +77,11 @@ extension UsersVeiwController {
         let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserTableViewCell.self),
                                                  for: indexPath) as! UserTableViewCell
         let item = list[indexPath.row]
-        cell.nameLabelText = String(item.name)
-        cell.usernameLabelText = item.username
-        cell.phoneLabelText = item.phone
-        cell.websiteLabelText = item.website
-        cell.companyLabelText = item.company.name
-        cell.addressLabelText = item.address.city
+        cell.setup(with: item)
         return cell
     }
+    
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        <#code#>
+//    }
 }
