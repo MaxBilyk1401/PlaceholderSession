@@ -34,6 +34,18 @@ final class UsersVeiwController: UITableViewController {
             self.list = list
             self.tableView.reloadData()
         }
+        
+        viewModel.onFailure = { [weak self] failure in
+            guard let self else { return }
+            let alert = UIAlertController(title: "Oops, something went wrong!",
+                                          message: "Try again",
+                                          preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Ok",
+                                          style: .cancel))
+            if failure {
+                self.present(alert, animated: true)
+            }
+        }
     }
     
     @objc private func onTableLoading() {
@@ -45,7 +57,9 @@ final class UsersVeiwController: UITableViewController {
         control.addTarget(self, action: #selector(onTableLoading), for: .valueChanged)
         tableView.dataSource = self
         tableView.delegate = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: String(describing: UITableViewCell.self))
+        tableView.register(UINib(nibName: String(describing: UserTableViewCell.self),
+                                 bundle: nil),
+                           forCellReuseIdentifier: String(describing: UserTableViewCell.self))
         tableView.refreshControl = control
     }
 }
@@ -60,9 +74,15 @@ extension UsersVeiwController {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UITableViewCell.self))!
-        let name = list[indexPath.row].name
-        cell.textLabel?.text = String(describing: name)
+        let cell = tableView.dequeueReusableCell(withIdentifier: String(describing: UserTableViewCell.self),
+                                                 for: indexPath) as! UserTableViewCell
+        let item = list[indexPath.row]
+        cell.nameLabelText = String(item.name)
+        cell.usernameLabelText = item.username
+        cell.phoneLabelText = item.phone
+        cell.websiteLabelText = item.website
+        cell.companyLabelText = item.company.name
+        cell.addressLabelText = item.address.city
         return cell
     }
 }

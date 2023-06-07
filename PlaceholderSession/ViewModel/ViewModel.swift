@@ -10,11 +10,11 @@ import Foundation
 class ViewModel {
     var onLoading: ((Bool) -> Void)?
     var onListUpdate: (([UsersModel]) -> Void)?
-    var onFailure: ((String?) -> Void )?
+    var onFailure: ((Bool) -> Void)?
     
     func fetchData() {
         onLoading?(true)
-        onFailure?(nil)
+        onFailure?(false)
         NetworkingManager.fetchData { [weak self] result in
             guard let self else { return }
             DispatchQueue.main.async {
@@ -22,7 +22,7 @@ class ViewModel {
                 case .success(let success):
                     self.onListUpdate?(success)
                 case .failure:
-                    self.onFailure?("Try again please")
+                    self.onFailure?(true)
                 }
                 self.onLoading?(false)
             }
