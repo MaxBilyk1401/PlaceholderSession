@@ -18,6 +18,7 @@
 		9DE7ECE62A2F8C1500082670 /* NetworkingManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ECE52A2F8C1500082670 /* NetworkingManager.swift */; };
 		9DE7ECEB2A2FD65A00082670 /* UserTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ECE92A2FD65A00082670 /* UserTableViewCell.swift */; };
 		9DE7ECEC2A2FD65A00082670 /* UserTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DE7ECEA2A2FD65A00082670 /* UserTableViewCell.xib */; };
+		9DE7ECEE2A30B70D00082670 /* UserUIComposer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE7ECED2A30B70D00082670 /* UserUIComposer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,7 @@
 		9DE7ECE52A2F8C1500082670 /* NetworkingManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkingManager.swift; sourceTree = "<group>"; };
 		9DE7ECE92A2FD65A00082670 /* UserTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserTableViewCell.swift; sourceTree = "<group>"; };
 		9DE7ECEA2A2FD65A00082670 /* UserTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserTableViewCell.xib; sourceTree = "<group>"; };
+		9DE7ECED2A30B70D00082670 /* UserUIComposer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserUIComposer.swift; sourceTree = "<group>"; };
 		B454222DBF36F0A5DD54386E /* Pods-PlaceholderSession.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-PlaceholderSession.debug.xcconfig"; path = "Target Support Files/Pods-PlaceholderSession/Pods-PlaceholderSession.debug.xcconfig"; sourceTree = "<group>"; };
 		F73B729855D858B71F736886 /* Pods_PlaceholderSession.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PlaceholderSession.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -113,6 +115,7 @@
 			children = (
 				9DE7ECE12A2F816000082670 /* ViewModel.swift */,
 				9DE7ECE52A2F8C1500082670 /* NetworkingManager.swift */,
+				9DE7ECED2A30B70D00082670 /* UserUIComposer.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -313,6 +316,7 @@
 				9DE7ECCB2A2E3F6D00082670 /* UsersVeiwController.swift in Sources */,
 				9DE7ECEB2A2FD65A00082670 /* UserTableViewCell.swift in Sources */,
 				9DE7ECC72A2E3F6D00082670 /* AppDelegate.swift in Sources */,
+				9DE7ECEE2A30B70D00082670 /* UserUIComposer.swift in Sources */,
 				9DE7ECE62A2F8C1500082670 /* NetworkingManager.swift in Sources */,
 				9DE7ECDF2A2F4DAC00082670 /* UsersModel.swift in Sources */,
 				9DE7ECC92A2E3F6D00082670 /* SceneDelegate.swift in Sources */,

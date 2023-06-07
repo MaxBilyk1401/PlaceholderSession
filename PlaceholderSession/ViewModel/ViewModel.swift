@@ -7,7 +7,12 @@
 
 import Foundation
 
+protocol UsersView: AnyObject {
+    func display(_ users: [UsersModel])
+}
+
 class ViewModel {
+    weak var view: UsersView?
     var onLoading: ((Bool) -> Void)?
     var onListUpdate: (([UsersModel]) -> Void)?
     var onFailure: ((Bool) -> Void)?

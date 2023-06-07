@@ -9,7 +9,7 @@ import UIKit
 
 final class UsersVeiwController: UITableViewController {
     private let userTableView = UITableView()
-    let viewModel = ViewModel()
+    var viewModel = ViewModel()
     var list = [UsersModel]()
     
     override func viewDidLoad() {
@@ -84,5 +84,13 @@ extension UsersVeiwController {
         cell.companyLabelText = item.company.name
         cell.addressLabelText = item.address.city
         return cell
+    }
+}
+
+extension UsersVeiwController: UsersView {
+    
+    func display(_ users: [UsersModel]) {
+        list = users
+        tableView.reloadData()
     }
 }
